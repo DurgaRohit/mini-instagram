@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --surface-2: #f3f4f6;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #dbdbdb;
+  --brand: #0095f6;
+  --brand-strong: #0076c9;
+  --danger: #dc2626;
+  --success: #15803d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top right, #ffe8d6 0%, transparent 36%),
+    radial-gradient(circle at left bottom, #dbeafe 0%, transparent 38%),
+    var(--bg);
+  min-height: 100vh;
+}
+
+a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--brand-strong);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar-inner {
+  width: min(980px, 92vw);
+  margin: 0 auto;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  font-family: "Grand Hotel", cursive;
+  font-size: 2rem;
+  color: #111827;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.page {
+  width: min(980px, 92vw);
+  margin: 28px auto;
+}
+
+.auth-wrap {
+  min-height: calc(100vh - 140px);
+  display: grid;
+  place-items: center;
+}
+
+.auth-card {
+  width: min(410px, 94vw);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px 24px;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+}
+
+.auth-title {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.input,
+.file-input {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  border-radius: 10px;
+  padding: 11px 12px;
+  font: inherit;
+}
+
+.input:focus,
+.file-input:focus {
+  border-color: #93c5fd;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.95;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00a2ff 0%, #0079d5 100%);
+  color: #fff;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.feed-grid {
+  width: min(620px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+}
+
+.post-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+}
+
+.post-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #fdba74, #f43f5e, #2563eb);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.post-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: #f3f4f6;
+}
+
+.post-body {
+  padding: 12px 14px 16px;
+}
+
+.caption {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.delete-link {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.flash {
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.flash-error {
+  color: #991b1b;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+}
+
+.flash-success {
+  color: #14532d;
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+}
+
+.helper-text {
+  margin-top: 14px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.pagination {
+  margin: 20px auto 0;
+  width: min(620px, 100%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.page-link {
+  min-width: 34px;
+  text-align: center;
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.page-link.active {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+
+.center-empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 28px 12px;
+}
+
+@media (max-width: 720px) {
+  .topbar-inner {
+    min-height: 58px;
+  }
+
+  .logo {
+    font-size: 1.7rem;
+  }
+
+  .nav-links {
+    gap: 10px;
+    font-size: 0.92rem;
+  }
+
+  .page {
+    margin: 16px auto;
+  }
+
+  .auth-card {
+    border-radius: 14px;
+    padding: 20px 16px;
+  }
+}
+
+.flash-wrap {
+  width: min(620px, 100%);
+  margin: 0 auto 12px;
+}

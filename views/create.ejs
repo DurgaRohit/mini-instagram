@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiniInsta | Create Post</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="logo">MiniInsta</div>
+        <div class="nav-links">
+          <a href="/post/feed">Feed</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <main class="page auth-wrap">
+      <section class="auth-card">
+        <p class="auth-title" style="margin-bottom: 14px;">Create a new post</p>
+
+        <% if (flashError) { %>
+          <div class="flash flash-error"><%= flashError %></div>
+        <% } %>
+
+        <% if (flashSuccess) { %>
+          <div class="flash flash-success"><%= flashSuccess %></div>
+        <% } %>
+
+        <form class="form" action="/post/create" method="POST" enctype="multipart/form-data">
+          <input class="input" name="caption" placeholder="Write a caption..." required />
+          <input class="file-input" type="file" name="image" accept="image/*" required />
+          <button class="btn btn-primary" type="submit">Share Post</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

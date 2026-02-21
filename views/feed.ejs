@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiniInsta | Feed</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="logo">MiniInsta</div>
+        <div class="nav-links">
+          <a href="/post/create">Create</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <main class="page">
+      <% if (flashError) { %>
+        <div class="flash-wrap">
+          <div class="flash flash-error"><%= flashError %></div>
+        </div>
+      <% } %>
+
+      <% if (flashSuccess) { %>
+        <div class="flash-wrap">
+          <div class="flash flash-success"><%= flashSuccess %></div>
+        </div>
+      <% } %>
+
+      <section class="feed-grid">
+        <% if (!posts.length) { %>
+          <div class="card center-empty">
+            No posts yet. <a href="/post/create">Create your first post</a>.
+          </div>
+        <% } %>
+
+        <% posts.forEach((post) => { %>
+          <article class="card">
+            <div class="post-head">
+              <div class="post-user">
+                <div class="avatar"><%= (post.user && post.user.username ? post.user.username[0] : "U") %></div>
+                <span><%= post.user ? post.user.username : "Unknown User" %></span>
+              </div>
+
+              <% if (post.user && post.user._id.toString() === userId) { %>
+                <a class="delete-link" href="/post/delete/<%= post._id %>">Delete</a>
+              <% } %>
+            </div>
+
+            <img class="post-image" src="/uploads/<%= post.image %>" alt="Post image" />
+
+            <div class="post-body">
+              <p class="caption"><strong><%= post.user ? post.user.username : "user" %></strong> <%= post.caption %></p>
+            </div>
+          </article>
+        <% }) %>
+      </section>
+
+      <% if (totalPages > 1) { %>
+        <nav class="pagination">
+          <% for (let i = 1; i <= totalPages; i++) { %>
+            <a class="page-link <%= i === currentPage ? "active" : "" %>" href="/post/feed?page=<%= i %>"><%= i %></a>
+          <% } %>
+        </nav>
+      <% } %>
+    </main>
+  </body>
+</html>

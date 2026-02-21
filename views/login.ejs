@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiniInsta | Login</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="logo">MiniInsta</div>
+        <div class="nav-links">
+          <a href="/signup">Sign up</a>
+        </div>
+      </div>
+    </div>
+
+    <main class="page auth-wrap">
+      <section class="auth-card">
+        <h1 class="logo" style="text-align: center; margin: 0 0 10px">MiniInsta</h1>
+        <p class="auth-title">Sign in to see photos and posts</p>
+
+        <% if (flashError) { %>
+          <div class="flash flash-error"><%= flashError %></div>
+        <% } %>
+
+        <% if (flashSuccess) { %>
+          <div class="flash flash-success"><%= flashSuccess %></div>
+        <% } %>
+
+        <form class="form" action="/login" method="POST">
+          <input class="input" name="email" type="email" placeholder="Email" required />
+          <input class="input" name="password" type="password" placeholder="Password" required />
+          <button class="btn btn-primary" type="submit">Log in</button>
+        </form>
+
+        <p class="helper-text">
+          Don't have an account? <a href="/signup">Create account</a>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
